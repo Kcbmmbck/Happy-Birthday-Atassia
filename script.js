@@ -89,13 +89,29 @@ document.addEventListener('keydown',e=>{
 const backgroundMusic = new Audio('music/Taylor%20Swift%20-%20The%20Fate%20of%20Ophelia%20(Official%20Music%20Video).mp3');
 backgroundMusic.loop=true;
 backgroundMusic.volume=.5;
-let musicPlaying=false;
-$('#musicToggle').addEventListener('click',()=>{
-  musicPlaying=!musicPlaying;
+let musicPlaying=true;
+function setMusicButton(){
   $('.music-label').textContent=musicPlaying?'Pause':'Play';
   $('.music-icon').textContent=musicPlaying?'❚❚':'♫';
+}
+function startBackgroundMusic(){
+  musicPlaying=true;
+  backgroundMusic.play().then(()=>setMusicButton()).catch(()=>{
+    musicPlaying=false;
+    setMusicButton();
+  });
+}
+setMusicButton();
+startBackgroundMusic();
+document.addEventListener('pointerdown',(e)=>{
+  if(e.target.closest('#musicToggle'))return;
+  if(!musicPlaying)startBackgroundMusic();
+},{once:true});
+$('#musicToggle').addEventListener('click',()=>{
+  musicPlaying=!musicPlaying;
+  setMusicButton();
   if(musicPlaying){
-    backgroundMusic.play().catch(()=>{musicPlaying=false;$('.music-label').textContent='Play';$('.music-icon').textContent='♫'});
+    startBackgroundMusic();
   }else{
     backgroundMusic.pause();
   }

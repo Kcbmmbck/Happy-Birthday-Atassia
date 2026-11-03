@@ -361,6 +361,13 @@ button:focus-visible,
   background: rgba(255, 255, 255, .7);
 }
 
+#futurePage .restart-button {
+  left: 24px;
+  right: auto;
+  top: 24px;
+  bottom: auto;
+}
+
 #letterModal .letter-content {
   width: min(760px, 90vw);
   max-height: 82vh;
@@ -415,5 +422,10 @@ button:focus-visible,
   .future-message {
     max-height: 34svh;
     padding-inline: 8px;
+  }
+
+  #futurePage .restart-button {
+    left: 12px;
+    top: 12px;
   }
 }
