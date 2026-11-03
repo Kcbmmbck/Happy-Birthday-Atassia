@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Birthday Love Story</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="loader" class="loader">
+    <div class="loader-heart">❤</div><p>A little love is loading...</p>
+  </div>
+  <canvas id="magicCanvas" aria-hidden="true"></canvas>
+
+  <button id="musicToggle" class="music-toggle" aria-label="Play background music"><span class="music-icon">♫</span><span class="music-label">Play</span></button>
+  <div class="progress-rail" aria-label="Page progress"><button class="progress-dot active" data-page="0" aria-label="Countdown"></button><button class="progress-dot" data-page="1" aria-label="Love story"></button><button class="progress-dot" data-page="2" aria-label="Letter"></button><button class="progress-dot" data-page="3" aria-label="Celebration"></button><button class="progress-dot" data-page="4" aria-label="Forever"></button></div>
+
+  <main id="book">
+    <section class="page active" id="countdownPage">
+      <div class="sky-glow"></div><div class="balloon balloon-1">🎈</div><div class="balloon balloon-2">🎈</div><div class="balloon balloon-3">🎈</div>
+      <div class="rose rose-left">🌹</div><div class="rose rose-right">🌹</div>
+      <div class="hero-wrap">
+        <span class="eyebrow">A little surprise, made only for you</span>
+        <h1 class="cinematic-title">Something Special Is Coming,<br><em>My Love...</em></h1>
+        <div class="countdown" id="countdown" aria-label="Countdown to November 28, 2026">
+          <div class="time-card"><strong id="days">00</strong><span>Days</span></div><i>:</i>
+          <div class="time-card"><strong id="hours">00</strong><span>Hours</span></div><i>:</i>
+          <div class="time-card"><strong id="minutes">00</strong><span>Minutes</span></div><i>:</i>
+          <div class="time-card"><strong id="seconds">00</strong><span>Seconds</span></div>
+        </div>
+        <button class="primary-button" id="openSurprise"><span>Open Your Birthday Surprise</span><b>💗</b></button>
+      </div>
+    </section>
+
+    <section class="page" id="storyPage">
+      <div class="section-heading"><span>Chapter One</span><h2>Our Beautiful Love Story</h2><p>Every photograph holds a little piece of forever.</p></div>
+      <div class="timeline">
+        <article class="memory-card" tabindex="0">
+          <div class="card-inner">
+            <div class="card-front photo-placeholder"><img src="pics/photo_2026-10-24_21-49-33.jpg" alt="Our first memory" data-memory="1"></div>
+            <div class="card-back"><span>01</span><h3>The Beginning of Us</h3><p>The moment our beautiful story started.</p><small>Click to return</small></div>
+          </div>
+        </article>
+        <article class="memory-card" tabindex="0">
+          <div class="card-inner">
+            <div class="card-front photo-placeholder"><img src="pics/photo_2026-10-28_09-04-57.jpg" alt="Favorite memory" data-memory="2"></div>
+            <div class="card-back"><span>02</span><h3>My Favorite Memories</h3><p>Every moment with you becomes a memory I want to keep forever.</p><small>Click to return</small></div>
+          </div>
+        </article>
+        <article class="memory-card" tabindex="0">
+          <div class="card-inner">
+            <div class="card-front photo-placeholder"><img src="pics/photo_2026-10-29_13-52-50.jpg" alt="My happiness" data-memory="3"></div>
+            <div class="card-back"><span>03</span><h3>My Happiness</h3><p>Your smile makes my world brighter, and being with you makes every day special.</p><small>Click to return</small></div>
+          </div>
+        </article>
+      </div>
+      <button class="next-button" data-next="2">There is something for you <span>→</span></button>
+    </section>
+
+    <section class="page" id="letterPage">
+      <div class="letter-heading"><span>Chapter Two</span><h2>A Letter From My Heart</h2></div>
+      <button class="envelope" id="envelope" aria-label="Open birthday letter"><span class="envelope-back"></span><span class="letter-paper"><b>To my favorite person...</b><small>Tap to read</small></span><span class="envelope-left"></span><span class="envelope-right"></span><span class="envelope-bottom"></span><span class="envelope-flap"></span><span class="wax-seal">❤</span></button>
+      <div class="letter-modal" id="letterModal" aria-hidden="true">
+        <div class="letter-content" role="dialog" aria-modal="true" aria-labelledby="letterTitle">
+          <button class="close-letter" aria-label="Close letter">×</button>
+          <h3 id="letterTitle">HAPPY BIRTHDAY, MY LOVELY ATASSIA! ❤️🎂💗</h3>
+          <p id="typewriter"></p>
+        </div>
+      </div>
+      <button class="next-button letter-next" data-next="3" hidden>Let's celebrate <span>→</span></button>
+    </section>
+
+    <section class="page" id="celebrationPage">
+      <div class="celebration-sky"><span class="shooting-star one"></span><span class="shooting-star two"></span></div>
+      <h2 class="birthday-title">HAPPY BIRTHDAY ATASSIA,<br><em>MY LOVE BABY ❤️❤️</em></h2>
+      <div class="cake-wrap">
+        <div class="cake"><div class="cake-top"></div><div class="cake-body"><span class="decoration d1"></span><span class="decoration d2"></span><span class="decoration d3"></span></div><div class="candles"><button class="candle" aria-label="Blow out candle"><i></i></button><button class="candle" aria-label="Blow out candle"><i></i></button><button class="candle" aria-label="Blow out candle"><i></i></button><button class="candle" aria-label="Blow out candle"><i></i></button><button class="candle" aria-label="Blow out candle"><i></i></button></div></div>
+      </div>
+      <p class="wish-copy" id="wishCopy">Tap the candles to blow them out...</p>
+      <button class="primary-button wish-button" id="wishButton"><span>Make a Wish</span><b>✨</b></button>
+      <button class="next-button celebration-next" data-next="4">One last chapter <span>→</span></button>
+    </section>
+
+    <section class="page" id="futurePage">
+      <div class="sunset"><div class="sun"></div><div class="horizon"></div></div>
+      <div class="future-content">
+        <span class="eyebrow">Chapter Three</span>
+        <h2>Our Future Wedding &amp; Forever Together <b>💍</b></h2>
+        <div class="future-couple" aria-label="Our future together">
+          <img src="Chapter%20Three/Full-Length%20Man%20in%20Black%20Three-Piece%20Suit.png" alt="A future portrait of my love" loading="eager">
+          <img src="Chapter%20Three/Regal%20Woman%20on%20Golden%20Throne.png" alt="A future portrait of Atassia" loading="eager">
+        </div>
+        <div class="future-message">
+          <p>One birthday, countless beautiful memories, endless laughter, and a lifetime of love still waiting for us.</p>
+          <p>Baby, I dream about the beautiful future we will build together. I look forward to more adventures, romantic dates, funny moments, long video calls, late-night conversations, warm hugs, and endless kisses. I want to experience every beautiful moment of life with you.</p>
+          <p>Someday, I hope we will stand together on our wedding day, dressed beautifully, looking into each other's eyes, and promising to love and support each other for the rest of our lives. I imagine walking toward you, holding your hands, exchanging wedding rings, and saying, "I do." It would be one of the most unforgettable and meaningful days of our lives. 💍🥹</p>
+          <p>I dream of becoming your husband someday, building our own happy home, waking up beside you every morning, preparing meals together, watching movies, traveling to beautiful places, and enjoying our little everyday routines. Maybe we will have funny arguments about what food to eat, playful moments, and sweet kisses before going to sleep. Hahaha! ❤️</p>
+          <p>I know our future will have challenges, but I hope we will always choose each other, communicate, understand one another, and never stop loving each other. I want to grow older with you, celebrate more birthdays together, and create memories that we can tell our future selves about.</p>
+          <p>I can't wait to write every new chapter of our love story with you. From boyfriend and girlfriend to husband and wife, I hope our journey will be filled with happiness, faithfulness, understanding, and unconditional love.</p>
+          <p>One day, I hope I won't have to say goodbye after our dates or end our video calls because I will finally be coming home to you.</p>
+          <p>Here's to our future wedding, our dreams, our forever, and a lifetime of choosing each other.</p>
+          <p><strong>I LOVE YOU SO MUCH, MY FUTURE WIFE, ATASSIA! Mwah mwah! 💋💋❤️💍</strong></p>
+        </div>
+        <div class="forever" id="foreverText">YOU &amp; ME, ALWAYS. <b>♾️</b> 💗</div>
+      </div>
+      <button class="restart-button" id="restart">Replay our story ↻</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
